@@ -48,7 +48,62 @@ o	Intrusion Detection
 ✅ Graphical Visualization – Displays security status in a bar chart.
  
 ## PROGRAM
- 
+
+clear; clc; close all;
+
+%% User Authentication (Access Control)
+correct_password = "EV1234"; % Predefined Password
+user_input = input('Enter Vehicle Access Code: ', 's');
+
+if strcmp(user_input, correct_password)
+   access_granted = 1;
+   disp('✅ Access Granted: Vehicle Unlocked');
+else
+   access_granted = 0;
+   disp('❌ Access Denied: Incorrect Password');
+end
+
+%% Simulated Intrusion Detection
+motion_detected = randi([0, 1]); % Randomly simulates intrusion (0 = No intrusion, 1 = Intrusion detected)
+
+if motion_detected == 1
+   intrusion_status = 1;
+   disp('⚠️ Intrusion Alert: Unauthorized Movement Detected!');
+else
+   intrusion_status = 0;
+   disp('✅ Vehicle Secure: No Intrusion Detected.');
+end
+
+%% Secure Communication Simulation
+message = "EV Security System Active";
+disp(['🔒 Sending Secure Message: ', message]);
+pause(1); % Simulating Data Transmission
+disp(['📩 Received Message: ', message]); % Simulating Decryption
+
+%% 🔥 Plot Security System Status
+figure;
+bar([access_granted, intrusion_status], 'FaceColor', 'flat');
+xticklabels({'Access Granted', 'Intrusion Detected'});
+ylabel('Status (1 = Yes, 0 = No)');
+ylim([0 1.2]);
+title('EV Security System Status');
+grid on;
+
+% Change colors dynamically
+b = gca;
+b.Children(1).CData = [0 1 0; 1 0 0]; % Green for access, Red for intrusion
+
+%% Ensure MATLAB Waits for Output Display
+pause(3); % Wait 3 seconds before script ends (For GUI users)
+
+
+**OUTPUT**
+
+<img width="418" height="571" alt="Screenshot (80)" src="https://github.com/user-attachments/assets/6de3eef9-c7a6-4fb7-8f0f-84c7bf85656c" />
+
+
+<img width="408" height="374" alt="Screenshot (81)" src="https://github.com/user-attachments/assets/c360da7f-707b-4338-8261-dd756dbb93d4" />
+
  
 ## RESULT
 The MATLAB program successfully simulates an Embedded IoT Security System for Electric Vehicles, demonstrating:
