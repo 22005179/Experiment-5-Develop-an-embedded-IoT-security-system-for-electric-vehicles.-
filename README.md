@@ -104,6 +104,7 @@ pause(3); % Wait 3 seconds before script ends (For GUI users)
 
  
 ## RESULT
+
 The MATLAB program successfully simulates an Embedded IoT Security System for Electric Vehicles, demonstrating:
 ✅ Access Control System – User authentication mechanism
 ✅ Intrusion Detection – Motion sensor alert system
